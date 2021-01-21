@@ -7,7 +7,7 @@ const App = () => {
 
     return (
         <div id="container">
-            <div className="section">
+            <div id="section">
                 <div>
                     <Header setGifs={setGifs} />
                 </div>
