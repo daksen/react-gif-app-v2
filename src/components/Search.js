@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 const Search = ({setGifs}) => {
     const [inputValue, setInputValue] = useState('');
-    const [hintStyle, setHintStyle] = useState('none');
 
     const getGifs = async(search) => {
         const url = `https://api.giphy.com/v1/gifs/search?q="${search}"&limit=10&api_key=uxTQOUYCoyHbE54ZliTDHgkdwIv4dzxk`;
@@ -21,18 +20,12 @@ const Search = ({setGifs}) => {
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
-        if(e.target.value.length > 0) {
-            setHintStyle('block');
-        } else {
-            setHintStyle('none');
-        }
     }
 
     const handleInputSubmit = (e) => {
         e.preventDefault();
         if(inputValue.trim().length > 0) {
             setInputValue('');
-            setHintStyle('none');
             getGifs(inputValue);
         }
     }
@@ -49,9 +42,6 @@ const Search = ({setGifs}) => {
                     onChange={handleInputChange}
                 />
             </form>
-            <div id="hint" style={{display: hintStyle}}>
-                <p>Simply hit enter to search</p>
-            </div>
         </>
     );
 }

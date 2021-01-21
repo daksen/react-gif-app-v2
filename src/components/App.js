@@ -8,10 +8,10 @@ const App = () => {
     return (
         <div id="container">
             <div className="section">
-                <div className="content">
+                <div>
                     <Header setGifs={setGifs} />
                 </div>
-                <div className="content scrollable-content">
+                <div className="scrollable-content">
                     {
                         gifs.map(img => {
                             return <img key={img.id} alt={img.title} src={img.url} />
